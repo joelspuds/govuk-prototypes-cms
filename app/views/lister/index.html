@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Manage directors" %}
+{% set pageName="List of directors" %}
+{% set serviceUrl="/lister/" %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+        <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+    </p>
+</div>
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({text: "Back", href: "/demov1/start"}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">{{ serviceName }}</span>
+        <h1 class="govuk-heading-xl">{{ pageName }}</h1>
+
+        <p>{{ allContent[0].GLOBAL_TAG_TITLE_SUFFIX }}</p>
+    </div>
+</div>
+
+<form class="" name="submitForm" action="#" method="post">
+
+    <div class="govuk-grid-row" id="main-content">
+        <div class="govuk-grid-column-two-thirds">
+
+
+            {% if allDirectors|length >=1 %}
+
+            <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+
+                {% for item in allDirectors %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                        {{ item }}
+                    </dt>
+                    <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                        <ul class="govuk-summary-list__actions-list">
+                            <li class="govuk-summary-list__actions-list-item">
+                                <!--<a class="govuk-link" href="#"><span aria-hidden="true">Change</span></a>-->
+                            <button name="change" value="{{ loop.index }}" class=" govuk-link govuk-button--link">Change <span class="govuk-visually-hidden">{{ item }}</span></button>
+                            </li>
+                            <li class="govuk-summary-list__actions-list-item">
+                                <!--<a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Sydney Russell from the list</span></a></li>-->
+                            <button name="remove" value="{{ loop.index }}" class="govuk-link govuk-button--link">Remove <span class="govuk-visually-hidden">{{ item }}</span></button>
+                        </ul>
+                    </dd>
+                </div>
+                {% endfor %}
+
+            </dl>
+
+            {% else %}
+
+                <p class="govuk-body">There are no currently directors</p>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="govuk-grid-row" id="">
+        <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="add-another-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Do you need to add another director?
+                    </legend>
+                    <div id="add-another-hint" class="govuk-hint">
+                        You must tell us about all your directors.
+                    </div>
+                    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="addAnother1" name="addAnother" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="addAnother1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="addAnother2" name="addAnother" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="addAnother2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="govuk-grid-row" id="">
+        <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-form-group">
+
+                <!--{% from "govuk/components/button/macro.njk" import govukButton %}
+
+                {{ govukButton({
+                text: "Continue"
+                }) }}-->
+
+                <button type="submit" class="govuk-button" name="submitButton" value="submitForm" data-module="govuk-button">
+                    Continue
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

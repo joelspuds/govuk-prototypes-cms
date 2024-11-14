@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Manage directors" %}
+{% set pageName="Content manager" %}
+{% set serviceUrl="/lister/" %}
+
+
+{% block beforeContent %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({text: "Back", href: "/demov1/start"}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">{{ serviceName }}</span>
+        <h1 class="govuk-heading-xl">{{ pageName }}</h1>
+
+        <p>{{ allContent[0].GLOBAL_TAG_TITLE_SUFFIX }}</p>
+    </div>
+</div>
+
+<form class="" name="submitForm" action="#" method="post">
+
+    <style>
+        *:not(input).monospace {
+            font-family: monospace;
+            font-size: 80%;
+        }
+        input.monospace {
+            font-family: monospace;
+        }
+    </style>
+
+    <div class="govuk-grid-row" id="main-content">
+        <div class="govuk-grid-column-full">
+            <ul class="govuk-list">
+                {% for item in allContent %}
+                 <li>
+                     <div class="govuk-form-group">
+                         <label class="govuk-label monospace" for="{{ item.name }}">{{ item.name }}</label>
+                         <input class="govuk-input govuk-input--width-20" id="{{ item.name }}" name="width20" type="text" value=" {{ item.value }}">
+                     </div>
+                 </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h2 class="govuk-heading-m">Add new item</h2>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="newItem">Name of item</label>
+                <span class="govuk-hint govuk-!-display-block">Use CAPS and underscores for spaces, for example: <span class="monospace">HOME_PAGE_TITLE</span> </span>
+                <input class="govuk-input govuk-input--width-20 monospace" id="newItem" name="width20" type="text" value="">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="width-20">Item value</label>
+                <input class="govuk-input govuk-input--width-20" id="width-20" name="width20" type="text" value="">
+            </div>
+            <div class="govuk-form-group">
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="govuk-grid-row" id="">
+        <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-form-group">
+
+                <button type="submit" class="govuk-button" name="submitButton" value="submitForm" data-module="govuk-button">
+                    Continue
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

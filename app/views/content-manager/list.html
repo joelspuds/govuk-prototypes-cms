@@ -1,0 +1,186 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Content manager" %}
+{% set pageName="Content for UKIMS prototype" %}
+{% set serviceUrl="/content-manager/" %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+        <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+    </p>
+</div>
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{#{{ govukBackLink({text: "Back", href: "/content-manager"}) }}#}
+{% endblock %}
+
+{% block content %}
+
+    {% if allData.itemHasBeenEdited %}
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+                <h3 class="govuk-notification-banner__heading">
+                    {{ allData.nameOfEditedItem }} has been updated
+                </h3>
+                {#<p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>#}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if allData.itemHasBeenAdded %}
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+                <h3 class="govuk-notification-banner__heading">
+                    {{ allData.nameOfAddedItem }} has been added
+                </h3>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if allData.itemHasBeenDeleted %}
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">Success</h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+                <h3 class="govuk-notification-banner__heading">
+                    {{ allData.nameOfDeletedItem }} has been deleted
+                </h3>
+            </div>
+        </div>
+    {% endif %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <span class="govuk-caption-xl">{{ serviceName }}</span>
+        <h1 class="govuk-heading-xl">{{ pageName }}  {#<span class="" style="font-family: monospace">{{ allData.fileName }}</span>#}</h1>
+    </div>
+</div>
+
+<form class="" name="submitForm" action="#" method="post">
+
+    <div class="govuk-grid-row" id="main-content">
+        <div class="govuk-grid-column-one-half">
+            <p class="govuk-body">
+                <a href="/content-manager/add" class="govuk-button govuk-button--secondary">Add new item</a>
+            </p>
+        </div>
+        <div class="govuk-grid-column-one-half">
+            <p class="govuk-body govuk-!-text-align-right">
+                <label class="govuk-label ">
+                    Show items from page:
+                    <select class="govuk-select" id="showPageItems">
+                            <option value="All">Show all</option>
+                        {% for item in uniquePagesArray %}
+                            <option value="{{ item }}">{{ item }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+            </p>
+        </div>
+    </div>
+
+    <div class="govuk-grid-row" id="__main-content">
+        <div class="govuk-grid-column-full">
+
+
+
+            {% if allContent|length >= 1 %}
+
+            <table class="govuk-table" data-module="moj-sortable-table">
+
+                <thead class="govuk-table__header">
+                    <tr class="govuk-table">
+                        <th class="govuk-table__cell" aria-sort="none">Name and value</th>
+                        <th class="govuk-table__cell" aria-sort="none">Page</th>
+                        <th class="govuk-table__cell" aria-sort="none">Updated</th>
+                        <th class="govuk-table__cell" style="min-width:90px"><span class="govuk-visually-hidden">Action</span></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in allContent %}
+                    <tr class="item-row" data-page="{{ item.page }}">
+                        <td class="govuk-table__cell" data-sort-value="{{ item.name }}">
+                            {{ item.name }}
+                            <br>
+                            <span class="govuk-!-font-size-16">
+                                {% if item.value %}
+                                {{ item.value }}
+                                {% else %}
+                                    [undefined]
+                                {% endif %}
+                            </span>
+                        </td>
+                        <td class="govuk-table__cell">
+                            {{ item.page }}
+                        </td>
+                        <td class="govuk-table__cell" data-sort-value="{{ item.updatedSeconds }}">
+                            {{ item.updatedDay }} {{ item.updatedMonth }} {{ item.updatedYear }}
+                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <button class="govuk-button--link govuk-!-font-size-16" value="{{ loop.index }}" name="removeButton">Delete <span class="govuk-visually-hidden" {{ item.value }}</span></button>&nbsp;|&nbsp;<button class="govuk-button--link govuk-!-font-size-16" value="{{ loop.index }}" name="editButton">Edit <span class="govuk-visually-hidden">{{ item.value }}</span></button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <p class="govuk-body">There is no content file to display, go back and <a href="/content-manager"> select a file to display</a>. </p>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+</form>
+
+
+
+
+{% endblock %}
+
+{% block pageScripts %}
+    {#<script src="/public/javascripts/filename-here.js"></script>#}
+    <script type="text/javascript" src="/public/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/public/javascripts/moj-sortable-tables.js"></script>
+    <script>
+        // window.GOVUKFrontend.initAll();
+        window.MOJFrontend.initAll();
+    </script>
+
+    <script>
+        // showPageItems
+        /*let pageSelecta = document.getElementById('showPageItems');
+        let allTableRows = document.getElementsByTagName('tr');
+        pageSelecta.addEventListener('change',function(){
+            let value = document.getElementById('showPageItems').value;
+            alert(value);
+            if (value === 'All') {
+
+            }
+        });*/
+        $('#showPageItems').on('change', function() {
+            let thisValue = $('#showPageItems').val();
+            if(this.value === 'All') {
+                $('tr.item-row').removeClass('govuk-visually-hidden');
+            } else {
+                $('tr.item-row').addClass('govuk-visually-hidden');
+                $('tr[data-page=' + thisValue + ']').removeClass('govuk-visually-hidden');
+            }
+
+        })
+    </script>
+{% endblock %}
+

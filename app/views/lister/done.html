@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Manage directors" %}
+{% set pageName="Directors section complete" %}
+{% set serviceUrl="/lister/" %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+        <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+    </p>
+</div>
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({text: "Back", href: "/lister"}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">{{ serviceName }}</span>
+        <h1 class="govuk-heading-xl">{{ pageName }}</h1>
+    </div>
+</div>
+
+<form class="" name="submitForm" action="#" method="post">
+
+    <div class="govuk-grid-row" id="main-content">
+        <div class="govuk-grid-column-two-thirds">
+
+            {% if allDirectors|length >=1 %}
+
+            <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+
+                {% for item in allDirectors %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                        {{ item }}
+                    </dt>
+
+                </div>
+                {% endfor %}
+
+            </dl>
+
+            {% else %}
+
+            <p class="govuk-body">There are no currently directors</p>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

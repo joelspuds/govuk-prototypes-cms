@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+{% set serviceUrl="/demo" %}
+{% set serviceName = allContent.GLOBAL_SERVICE_NAME %}
+{% set pageName = allContent.START_H1 %}
+{% set contentManagerPageName = "Start" %}
+
+{% block beforeContent %}
+    <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content">
+            <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+            <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+    <!--{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({text: "Back to home ", href: "/"}) }}-->
+{% endblock %}
+
+{% block header %}
+    {{ govukHeader({
+        homepageUrl: "/",
+        serviceName: serviceName,
+        serviceUrl: "/",
+        containerClasses: "govuk-width-container"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">{{ allContent.START_H1 }}</h1>
+        </div>
+    </div>
+    <form class="" name="submitForm" action="#" method="post">
+        <div class="govuk-grid-row" id="main-content">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-body">{{ allContent.START_PARA1 }}</p>
+                {#<p class="govuk-body"> This service is also available <a href="#" class="govuk-link">in Welsh (Cymraeg)</a>.</p>#}
+            </div>
+        </div>
+        <div class="govuk-grid-row" id="">
+            <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-form-group">
+                    {% from "govuk/components/button/macro.njk" import govukButton %}
+                    {{ govukButton({
+                        text: allContent.START_CTA,
+                        isStartButton: "true"
+                    }) }}
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

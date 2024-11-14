@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = allContent.GLOBAL_SERVICE_NAME %}
+{#{% set serviceUrl="/demov1/" %}#}
+{% set pageName = allContent.DEMO_H1 %}
+{% set contentManagerPageName = "Demo" %}
+
+{% block beforeContent %}
+    <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content">
+            <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+            <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+        </p>
+    </div>
+    {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+    {{ govukBackLink({text: "Back", href: "/demo"}) }}
+{% endblock %}
+
+{% block content %}
+
+    <form class="" name="submitForm" action="#" method="post">
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                <div class="govuk-form-group ">
+                    <h1 class="govuk-label-wrapper">
+                        <label class="govuk-label govuk-label--l" for="cakeInput">
+                            {{ allContent.DEMO_H1 }}
+                        </label>
+                    </h1>
+                    <div id="cakeHint" class="govuk-hint">
+                        {{ allContent.DEMO_HINT }}
+                    </div>
+                    <input class="govuk-input" id="cakeInput" name="cakeInput" type="text" aria-describedby="cakeHint">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="govuk-grid-row" id="">
+            <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-form-group">
+
+                    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                    {{ govukButton({
+                        text: allContent.DEMO_CTA
+                    }) }}
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <script>
+        var textarea = document.getElementById("eoriNumbers");
+        var limit = 15;
+
+        textarea.oninput = function() {
+            textarea.style.height = "";
+            textarea.style.height = Math.min(textarea.scrollHeight, 300) + "px";
+        };
+
+    </script>
+
+    {% if allData.editMode %}
+    <div class="edit-link">
+        <a href="/content-manager#{{ contentManagerPageName }}" class="govuk-link" target="_blank">Edit this page</a>
+    </div>
+    {% endif %}
+
+{% endblock %}

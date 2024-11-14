@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Manage directors" %}
+{% set pageName="Change director details" %}
+{% set serviceUrl="/lister/" %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+        <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+    </p>
+</div>
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({text: "Back", href: "/lister"}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">{{ serviceName }}</span>
+        <h1 class="govuk-heading-xl">{{ pageName }}</h1>
+    </div>
+</div>
+
+<form class="" name="submitForm" action="#" method="post">
+
+    <div class="govuk-grid-row" id="main-content">
+        <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="newDirector">Change the name of a director</label>
+                <input type="hidden" value="{{ directorToChange }}" name="changingDirector">
+                <input class="govuk-input" id="newDirector" name="newDirector" type="text" value="{{ directorToChange }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="govuk-grid-row" id="">
+        <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-form-group">
+
+                {% from "govuk/components/button/macro.njk" import govukButton %}
+
+                {{ govukButton({
+                text: "Change director details"
+                }) }}
+
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+{% endblock %}

@@ -1,20 +1,42 @@
 {% extends "layouts/main.html" %}
+{% set pageName="Prototype CMS" %}
+{% set serviceUrl="/demov1/" %}
 
-{% set pageName="Home" %}
+{% set serviceName = "Prototype content manager" %}
+
+{% block beforeContent %}
+
+  <!--{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{{ govukBackLink({text: "Back to home ", href: "/"}) }}-->
+{% endblock %}
+
 
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!--<span class="govuk-caption-xl">{{ serviceName }}</span>-->
+      <h1 class="govuk-heading-xl">{{ pageName }}</h1>
+    </div>
   </div>
-</div>
+
+  <div class="govuk-grid-row" id="main-content">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-s">Instructions</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <span class="govuk-body">Open the content manager</span>
+          <br>
+          <a href="/content-manager/">content manager</a>
+        </li>
+        <li>
+          <span class="govuk-body">See how your changes are reflected in the demo journey below</span>
+          <br>
+          <a href="/demo/" target="_blank">demo UI</a> (opens new tab)
+        </li>
+
+      </ul>
+    </div>
+  </div>
 
 {% endblock %}

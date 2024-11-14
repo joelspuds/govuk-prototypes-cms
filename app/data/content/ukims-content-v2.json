@@ -1,0 +1,51 @@
+[
+  {
+    "name": "GLOBAL_TAG_TITLE_SUFFIX",
+    "value": " - UKIMS",
+    "type": "input",
+    "page":  "Generic"
+  },
+  {
+    "name": "HOME_H1",
+    "value": "UKIMS ",
+    "type": "input",
+    "page":  "Home"
+  },
+  {
+    "name": "HOME_LEDE",
+    "value": "Lorem ipsum sunc dolor in vino verits",
+    "type": "textarea",
+    "page":  "Home"
+  },
+  {
+    "name": "GENERIC_BUTTON_CTA",
+    "value": "Continue",
+    "type": "input",
+    "page":  "Generic"
+  },
+  {
+    "name": "ENTER_H1",
+    "value": "Enter your EORI number",
+    "type": "input",
+    "page":  "Enter"
+  },
+  {
+    "name": "ENTER_EORI_LABEL",
+    "value": "Enter your EORI number",
+    "type": "input",
+    "page":  "Enter"
+  },
+  {
+    "name": "ENTER_EORI_HINT",
+    "value": "It must be 12 or 15 characters and start with GB or XI",
+    "type": "input",
+    "page":  "Enter"
+  },
+  {
+    "name": "ENTER_CTA",
+    "value": "Check my number",
+    "type": "input",
+    "page":  "Enter"
+  }
+]
+

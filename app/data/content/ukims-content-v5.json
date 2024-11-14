@@ -1,0 +1,239 @@
+[
+  {
+    "name": "GLOBAL_TAG_TITLE_SUFFIX",
+    "page": "Generic",
+    "type": "input",
+    "value": " - UKIMS",
+    "updatedDay": "05",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067222"
+  },
+  {
+    "name": "GLOBAL_SERVICE_NAME",
+    "page": "Generic",
+    "type": "input",
+    "value": "The name of the service",
+    "updatedDay": "06",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067223"
+  },
+  {
+    "name": "START_H1",
+    "page": "Start",
+    "type": "input",
+    "value": "Check an EORI number for UK Internal Market Scheme (UKIMS) authorisation ",
+    "updatedDay": "07",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067224"
+  },
+  {
+    "name": "START_PARA_1",
+    "page": "Start",
+    "type": "textarea",
+    "value": "Use this service to find out if a business has UK Internal Market Scheme (UKIMS) authorisation by checking their EORI number.",
+    "updatedDay": "10",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067225"
+  },
+  {
+    "name": "START_PARA_2",
+    "page": "Start",
+    "type": "input",
+    "value": "A business must have UKIMS authorisation to move qualifying goods from GB (England, Scotland and Wales) to Northern Ireland (NI) without paperwork, checks or duties.",
+    "updatedDay": "09",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067226"
+  },
+  {
+    "name": "START_WELSH_LINK_TEXT",
+    "page": "Start",
+    "type": "input",
+    "value": "This service is also available",
+    "updatedDay": "09",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067227"
+  },
+  {
+    "name": "START_WELSH_LINK_ANCHOR",
+    "page": "Start",
+    "type": "input",
+    "value": "in Welsh (Cymraeg)",
+    "updatedDay": "09",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067227"
+  },
+  {
+    "name": "ENTER_SINGLE_H1",
+    "page": "Enter",
+    "type": "input",
+    "value": "What is the EORI number of the business you want to check?",
+    "updatedDay": "03",
+    "updatedYear": 2024,
+    "updatedMonth": "Jul",
+    "updatedSeconds": 1720002668474
+  },
+  {
+    "name": "ENTER_SINGLE_HINT",
+    "page": "Enter",
+    "type": "input",
+    "value": "The first 2 letters are the country code, like GB or XI. This is followed by 12 or 15 digits, like GB123456123456.",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "May",
+    "updatedSeconds": "1717524067231"
+  },
+  {
+    "name": "ENTER_SINGLE_CTA",
+    "page": "Enter",
+    "type": "input",
+    "value": "Continue",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067231"
+  },
+  {
+    "name": "ENTER_ERROR_NO_NUMBER_TOP",
+    "page": "Enter",
+    "type": "input",
+    "value": "You must enter an EORI number to continue",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067233"
+  },
+  {
+    "name": "ENTER_ERROR_NO_NUMBER_INPUT",
+    "page": "Enter",
+    "type": "input",
+    "value": "Enter an EORI number",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067234"
+  },
+  {
+    "name": "ENTER_ERROR_PREFIX_TOP",
+    "page": "Enter",
+    "type": "input",
+    "value": "EORI number must start with GB or XI",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "ENTER_ERROR_PREFIX_INPUT",
+    "page": "Enter",
+    "type": "input",
+    "value": "Re-enter the EORI number with the correct prefix",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "ENTER_ERROR_NUMBER_LENGTH_TOP",
+    "page": "Enter",
+    "type": "input",
+    "value": "EORI number must be 12 or 15 digits long",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "ENTER_ERROR_NUMBER_LENGTH_INPUT",
+    "page": "Enter",
+    "type": "input",
+    "value": "Re-enter an EORI number with the correct number of digits",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "SUCCESS_PAGE_NAME",
+    "page": "Success",
+    "type": "input",
+    "value": "EORI number results",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "SUCCESS_H1_BANNER_AFTER_EORI",
+    "page": "Success",
+    "type": "input",
+    "value": "has UKIMS authorisation",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "SUCCESS_PARA_1",
+    "page": "Success",
+    "type": "input",
+    "value": "There is no EU duty payable on these goods as they're 'not at risk' of moving to the EU.",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "FAIL_H1",
+    "page": "Fail",
+    "type": "input",
+    "value": " does not have UKIMS authorisation",
+    "updatedDay": "12",
+    "updatedYear": "2024",
+    "updatedMonth": "Apr",
+    "updatedSeconds": "1717524067232"
+  },
+  {
+    "name": "FAIL_PARA_1",
+    "page": "Fail",
+    "type": "input",
+    "value": "The business this EORI number matches is not authorised to use the UK Internal Market Scheme.",
+    "updatedDay": "11",
+    "updatedYear": 2024,
+    "updatedMonth": "Jun",
+    "updatedSeconds": 1718097672618
+  },
+  {
+    "name": "DEMO_H1",
+    "page": "Demo",
+    "value": "What is your favourite type of cake?",
+    "updatedDay": "10",
+    "updatedYear": 2024,
+    "updatedMonth": "Jul",
+    "updatedSeconds": 1720614971242
+  },
+  {
+    "name": "DEMO_CTA",
+    "page": "Demo",
+    "value": "Save and continue",
+    "updatedDay": "10",
+    "updatedYear": 2024,
+    "updatedMonth": "Jul",
+    "updatedSeconds": 1720614490667
+  },
+  {
+    "name": "DEMO_HINT",
+    "page": "Demo",
+    "value": "Enter your favourite baked confectionary item, for example, carrot cake, brownie or baklava",
+    "updatedDay": "10",
+    "updatedYear": 2024,
+    "updatedMonth": "Jul",
+    "updatedSeconds": 1720615119656
+  }
+]

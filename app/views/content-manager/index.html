@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Content manager" %}
+{% set pageName="" %}
+{% set serviceUrl="/lister/" %}
+
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+        <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+    </p>
+</div>
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{#{{ govukBackLink({text: "Back", href: "/content-manager"}) }}#}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <!--<span class="govuk-caption-xl">{{ serviceName }}</span>
+        <h1 class="govuk-heading-xl">{{ pageName }}</h1>-->
+        <h1 class="govuk-heading-xl">{{ serviceName }}</h1>
+
+        <p>{{ allContent[0].GLOBAL_TAG_TITLE_SUFFIX }}</p>
+    </div>
+</div>
+
+<form class="" name="submitForm" action="#" method="post">
+
+    <div class="govuk-grid-row" id="main-content">
+        <div class="govuk-grid-column-two-thirds">
+            {% if fileList|length >= 1 %}
+
+            <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+
+                {% for item in fileList %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                        {{ item }}
+                    </dt>
+                    <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                        <ul class="govuk-summary-list__actions-list">
+                            <li class="govuk-summary-list__actions-list-item">
+                                <!--<a class="govuk-link" href="#"><span aria-hidden="true">Change</span></a>-->
+                                <button name="fileName" value="{{ item }}" class=" govuk-link govuk-button--link">View <span class="govuk-visually-hidden">{{ item }}</span></button>
+                            </li>
+                            <!--<li class="govuk-summary-list__actions-list-item">
+                                &lt;!&ndash;<a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Sydney Russell from the list</span></a></li>&ndash;&gt;
+                                <button name="remove" value="{{ loop.index }}" class="govuk-link govuk-button&#45;&#45;link">Remove <span class="govuk-visually-hidden">{{ item }}</span></button></li>-->
+                        </ul>
+                    </dd>
+                </div>
+                {% endfor %}
+
+            </dl>
+
+            {% else %}
+
+            <p class="govuk-body">There are no content files</p>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+
+    <div class="govuk-grid-row" id="">
+        <div class="govuk-grid-column-two-thirds">
+            <div class="govuk-form-group">
+
+                <button type="submit" class="govuk-button govuk-button--secondary" name="submitButton" value="submitForm" data-module="govuk-button">
+                    Add new file
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

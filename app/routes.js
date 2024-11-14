@@ -3,7 +3,10 @@
 // https://prototype-kit.service.gov.uk/docs/create-routes
 //
 
-const govukPrototypeKit = require('govuk-prototype-kit')
-const router = govukPrototypeKit.requests.setupRouter()
+const govukPrototypeKit = require('govuk-prototype-kit');
+const router = govukPrototypeKit.requests.setupRouter();
+require('./routes/cms/contentManager')(router);
 
-// Add your routes here
+require('./routes/genericRoutes')(router);
+require('./routes/cms-demo')(router);
+
